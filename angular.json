@@ -34,11 +34,7 @@
               "projects/anami-appointments/src/styles.scss"
             ],
             "scripts": [],
-            "server": "projects/anami-appointments/src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "projects/anami-appointments/server.ts"
-            }
+            "prerender": false
           },
           "configurations": {
             "production": {

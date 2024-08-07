@@ -1,0 +1,11 @@
+services:
+  anami-appoinments:
+    build: 
+      context: .
+      target: prod
+      dockerfile: Dockerfile
+    image: ikedadev/anami-appoinments
+    container_name: front-anami-appoinments
+    ports:
+      - 80:80
+    environment:
