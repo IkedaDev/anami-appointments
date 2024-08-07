@@ -1,0 +1,25 @@
+.ami-layout-binnacle{
+    min-height: 100vh;
+    min-width: 100vw;
+    .ami-layout-binnacle-wrapper{
+        margin: auto;
+        min-width: 20rem;
+        max-width: 60rem;
+        min-height: 100vh;
+        .ami-layout-binnacle-wrapper__logo{
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 200px;
+            }
+        }
+        main{
+            height: calc(70vh - 6rem);
+        }
+        nav{
+            height: 6rem;
+        }
+    }
+}

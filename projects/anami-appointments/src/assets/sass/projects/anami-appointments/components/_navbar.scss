@@ -1,0 +1,17 @@
+@forward '../../../base/';
+
+.ami-component-binnacle-navbar{
+    @extend .ami-business-normal-bg-color;
+    display: flex;
+    span{
+        &.active{
+            @extend .ami-business-bold-bg-color;
+        }
+        height: 100%;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}

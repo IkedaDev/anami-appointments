@@ -1,0 +1,15 @@
+@use '../variables/colors' as color;
+
+.ami-business-normal-color{
+    color: map-get($map: color.$business-color , $key: 'normal')
+}
+.ami-business-bold-color{
+    color: map-get($map: color.$business-color , $key: 'bold')
+}
+
+.ami-business-normal-bg-color{
+    background: map-get($map: color.$business-color , $key: 'normal')
+}
+.ami-business-bold-bg-color{
+    background: map-get($map: color.$business-color , $key: 'bold')
+}
