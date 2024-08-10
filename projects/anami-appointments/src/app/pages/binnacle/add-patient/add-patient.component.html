@@ -5,7 +5,7 @@
 
     <app-date-card></app-date-card>
 
-   <form [formGroup]="form">
+   <form [formGroup]="form" (submit)="save()">
         <app-input 
         [props]="{
             type: 'text',
@@ -43,9 +43,8 @@
                     }
                 </ng-container>
             </app-input-select>
-            
-            
         </div>
+        <app-button [props]="{ type:'submit', value: 'Guardar', color:'success' }" class="ami-my-10"></app-button>
    </form>
 </div>
 

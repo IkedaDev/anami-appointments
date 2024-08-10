@@ -1,4 +1,4 @@
-<div class="ami-component-input-select" appClickOutside (clickOutside)="handleClickOutside()">
+<div class="ami-component-input-select" appClickOutside (clickOutside)="handleClickOutside()" [class.active]="!showOptions">
     <div class="ami-component-input-select-input" (click)="toggleHasClick()">
         <span>{{props.label}}</span>
         <!-- <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -6,7 +6,7 @@
         </svg> -->
     </div>
     
-    <div class="ami-component-input-select-input__option" [class.active]="!showOptions" (click)="handleClickOutside()">
+    <div class="ami-component-input-select-input__option"  (click)="handleClickOutside()">
         <ng-content #options></ng-content>
     </div>
 </div>

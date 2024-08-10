@@ -2,7 +2,6 @@
 @use '../../../../variables/variables' as var;
 
 .ami-component-input-select{
-    
     position: relative;
     .ami-component-input-select-input{
         width: 100%;
@@ -12,19 +11,27 @@
         background-color: map-get($map: color.$business-color, $key: "normal");
         height: 3.5rem;  
         font-size: 1.2rem;
+        border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
     }
     .ami-component-input-select-input__option{
-        &.active{
-            * { display: none }
-            height: 0;
-            width: 0;
-            position: absolute;
-        }
         position: absolute;
         z-index: 10;
         width: 100%;
         background-color: map-get($map: color.$business-color, $key: "light");
         border-bottom-left-radius: map-get($map: var.$border-radius, $key: "small");
         border-bottom-right-radius: map-get($map: var.$border-radius, $key: "small");
+    }
+    
+    &.active{
+        .ami-component-input-select-input {
+            
+            border-radius: map-get($map: var.$border-radius, $key: 'small');
+        }
+        .ami-component-input-select-input__option {
+            * { display: none }
+            height: 0;
+            width: 0;
+        } 
     }
 }

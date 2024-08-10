@@ -6,14 +6,15 @@ import { CommonModule } from '@angular/common';
 import { InputSelectComponent } from '../../../components/input-select/input-select.component';
 import { BasicOptionComponent } from "../../../components/input-select/basic-option/basic-option.component";
 import { InputSelectOption } from '../../../models/components';
-import { MassageDurationService } from '../../../services';
+import { MassageDurationService, ToastService } from '../../../services';
 import { BasicOption } from '../../../interfaces/components/input-select';
 import { TitleComponent } from '../../../components/title/title.component';
+import { ButtonComponent } from '../../../components/button/button.component';
 
 @Component({
   selector: 'app-add-patient',
   standalone: true,
-  imports: [InputComponent, DateCardComponent, ReactiveFormsModule, CommonModule, InputSelectComponent, BasicOptionComponent, TitleComponent],
+  imports: [InputComponent, DateCardComponent, ReactiveFormsModule, CommonModule, InputSelectComponent, BasicOptionComponent, TitleComponent, ButtonComponent],
   templateUrl: './add-patient.component.html',
   styleUrl: './add-patient.component.scss'
 })
@@ -22,6 +23,7 @@ export class AddPatientComponent implements OnInit{
 
   private _fb : FormBuilder = inject(FormBuilder)
   private _massageDuration = inject(MassageDurationService)
+  private _toastAlert = inject(ToastService)
 
   public form : FormGroup = this._fb.group({
     attentionDate: [],
@@ -50,11 +52,17 @@ export class AddPatientComponent implements OnInit{
       this._massageDuration.setMassageDuration( massageDurations )
     })
 
-    
-
   }
 
+  save(){
+    if(this.form.invalid) return 
+    
+    this._toastAlert.createBuilder()
+    .addTitle('Masaje creado')  
+    .addIcon('success')
+    .build()
 
+  }
 
 
 

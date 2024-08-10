@@ -13,3 +13,13 @@
 .ami-business-bold-bg-color{
     background: map-get($map: color.$business-color , $key: 'bold')
 }
+
+.ami-success-normal-color{
+    color: map-get($map: color.$success-color , $key: 'normal')
+}
+
+.ami-success-normal-bg-color{
+    background: map-get($map: color.$success-color , $key: 'normal')
+}
+
+

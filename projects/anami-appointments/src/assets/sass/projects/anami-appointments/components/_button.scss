@@ -1,0 +1,11 @@
+@forward './../../../base/colors';
+@use '../../../variables/variables' as var;
+@use '../../../variables/colors' as color;
+
+button.ami-component-button{
+    width: 100%;
+    border: none;
+    height: 3.5rem;
+    border-radius: map-get($map: var.$border-radius, $key: 'small');
+    color: map-get($map: color.$text-color, $key: "black")
+}

@@ -1,0 +1,7 @@
+<button 
+    class="ami-component-button"
+    [type]="props.type" 
+    (click)="handlerClick()"
+    [ngClass]="{'ami-success-normal-bg-color': props.color == 'success'}"
+    
+>{{props.value}}</button>

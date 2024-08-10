@@ -9,5 +9,18 @@
 }
 
 html{
+    // font-size: var.$html-font-size;
     font-size: var.$html-font-size;
 }
+body{
+    overscroll-behavior-y: contain;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+    font-size: 1.5rem !important;
+}
+

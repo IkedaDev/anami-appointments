@@ -1,0 +1,10 @@
+.ami-page-binnacle-history{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    app-date-card {
+        width: 100%;
+    }
+}
