@@ -1,4 +1,5 @@
 $business-color:(
+    'light': #f7ece2,
     'normal': #EBE5DF,
     'bold': #E0D9D2,
 );
@@ -12,9 +13,10 @@ $warning-color:(
 );
 
 $background-color:(
-    'white': #FFFFFF
+    'white': #FFFFFF,
 );
 
 $text-color:(
-    'dark': #000000
+    'dark': #000000,
+    'placeholder': #1a1919,
 );

@@ -1,0 +1,22 @@
+@use '../../../variables/colors' as color;
+@use '../../../variables/variables' as var;
+
+.ami-component-input{
+    display: inline-block;
+    height: 3.5rem;  
+    width: 100%;  
+    input{
+        height: 100%;
+        background-color: map-get($map: color.$business-color, $key: "normal");
+        outline: none;
+        border: none;
+        width: 100%;  
+        padding: 0 1rem;
+        border-radius: map-get($map: var.$border-radius, $key: 'small');
+        text-align: center;
+        &::placeholder{
+            color: map-get($map: color.$text-color, $key: "placeholder");
+        }
+
+    }
+}

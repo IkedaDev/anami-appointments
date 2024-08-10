@@ -1,1 +1,28 @@
-<p>add-patient works!</p>
+
+<div class="ami-page-binnacle-add">
+
+    <app-date-card></app-date-card>
+
+   <form [formGroup]="form">
+        <app-input 
+        [props]="{
+            type: 'text',
+            placeholder: 'Paciente',
+        }"
+        formControlName="patient"
+        ></app-input>
+
+        <app-input-select [props]="{
+            label: durationOptions.setLabel(form.get('massageDuration')?.value, 'Duracion')(), 
+        }" >
+            <ng-container #option>
+                @for (option of durationOptions.options(); track $index) {
+                    <app-basic-option [option]="option" formControlName="massageDuration"></app-basic-option>
+                }
+            </ng-container>
+        </app-input-select>
+   </form>
+</div>
+
+
+

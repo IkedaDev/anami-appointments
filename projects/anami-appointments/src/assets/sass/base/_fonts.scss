@@ -1,0 +1,47 @@
+@use '../variables/variables' as var;
+
+.ami-font-thin{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 100;
+}
+
+.ami-font-extra-light{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 200;
+}
+
+.ami-font-light{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 300;
+}
+
+.ami-font-regular{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 400;
+}
+
+.ami-font-italic{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 400;
+    font-size: italic;
+}
+
+.ami-font-medium{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 500;
+}
+
+.ami-font-semi-bold{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 600;
+}
+
+.ami-font-bold{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 700;
+}
+
+.ami-font-extra-bold{
+    font-family: map-get($map: var.$fonts, $key: "default");
+    font-weight: 800;
+}

@@ -1,6 +1,8 @@
 @use '../variables/variables' as var;
+@use '../base/fonts';
 
 *,*::after,*::before{
+    @extend .ami-font-regular;
     margin: 0;
     padding: 0;
     box-sizing: border-box;

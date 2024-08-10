@@ -1,0 +1,26 @@
+@use '../../../../variables/colors' as color;
+@use '../../../../variables/variables' as var;
+
+.ami-component-input-select__basic-option {
+    height: 4rem;
+    position: relative;
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 100%;
+        padding: .5rem 1rem;
+    }
+    input[type="radio"]{
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &:hover{
+        background-color: map-get($map: color.$business-color, $key: "bold");
+    }
+}

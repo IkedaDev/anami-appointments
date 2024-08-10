@@ -1,0 +1,9 @@
+<div class="ami-component-input">
+    <input 
+        [type]="props.type"
+        [placeholder]="props.placeholder"
+        [value]="value"
+        (input)="handleInput($event)"
+        [disabled]="isDisabled"
+    >
+</div>

@@ -1,0 +1,11 @@
+<div class="ami-component-input-select__basic-option">
+    <input 
+        type="radio" 
+        [name]="option.name" 
+        [id]="option.key" 
+        [title]="option.title" 
+        [value]="option.value"
+        (change)="onChange($event)"
+    >
+    <label [for]="option.key">{{ option.label }}</label>
+</div>
