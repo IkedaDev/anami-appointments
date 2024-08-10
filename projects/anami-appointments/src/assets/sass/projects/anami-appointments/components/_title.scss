@@ -1,0 +1,6 @@
+@forward './../../../base/fonts';
+
+.ami-component-title{
+    @extend .ami-font-regular;
+    font-size: 2.6rem;
+}

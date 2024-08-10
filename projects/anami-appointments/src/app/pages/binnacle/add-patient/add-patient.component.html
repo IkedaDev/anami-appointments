@@ -1,6 +1,8 @@
 
 <div class="ami-page-binnacle-add">
 
+    <app-title title="Agregar Masaje" ></app-title>
+
     <app-date-card></app-date-card>
 
    <form [formGroup]="form">
@@ -21,6 +23,29 @@
                 }
             </ng-container>
         </app-input-select>
+
+        <div class="ami-page-binnacle-add__combine-select">
+            <app-input-select [props]="{
+                label: nailOptions.setLabel(form.get('nailCutting')?.value, 'Corte de uñas')(), 
+            }" >
+                <ng-container #option>
+                    @for (option of nailOptions.options(); track $index) {
+                        <app-basic-option [option]="option" formControlName="nailCutting"></app-basic-option>
+                    }
+                </ng-container>
+            </app-input-select>
+            <app-input-select [props]="{
+                label: facialOptions.setLabel(form.get('facialCleansing')?.value, 'Limpieza facial')(), 
+            }" >
+                <ng-container #option>
+                    @for (option of facialOptions.options(); track $index) {
+                        <app-basic-option [option]="option" formControlName="facialCleansing"></app-basic-option>
+                    }
+                </ng-container>
+            </app-input-select>
+            
+            
+        </div>
    </form>
 </div>
 

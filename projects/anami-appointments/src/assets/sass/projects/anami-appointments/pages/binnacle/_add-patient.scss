@@ -1,5 +1,4 @@
 .ami-page-binnacle-add{
-    // background-color: red;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -13,5 +12,13 @@
         flex-direction: column;
         gap: 1rem;
         width: 100%;
+        .ami-page-binnacle-add__combine-select {
+            display: flex;
+            gap: 1rem;
+            app-input-select {
+                flex-grow: 1;
+                width: 50%;
+            }
+        }
     }
 }
