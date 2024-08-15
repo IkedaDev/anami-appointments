@@ -30,19 +30,25 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_TOKEN
 
-    - name: Build Docker Image
-      env:
-        NEW_VERSION: ${{ steps.version.outputs.version }}
-      run: |
-        docker build -t ikedaharket/anami-appointments:$NEW_VERSION .
-        docker build -t ikedaharket/anami-appointments:latest . 
+    # - name: Build Docker Image
+    #   env:
+    #     NEW_VERSION: ${{ steps.version.outputs.version }}
+    #   run: |
+    #     docker build -t ikedaharket/anami-appointments:$NEW_VERSION .
+    #     docker build -t ikedaharket/anami-appointments:latest . 
 
-    - name: Push Docker Image
-      env:
-        NEW_VERSION: ${{ steps.version.outputs.version }}
-      run: |
-        docker push ikedaharket/anami-appointments:$NEW_VERSION
-        docker push ikedaharket/anami-appointments:latest
+    # - name: Push Docker Image
+    #   env:
+    #     NEW_VERSION: ${{ steps.version.outputs.version }}
+    #   run: |
+    #     docker push ikedaharket/anami-appointments:$NEW_VERSION
+    #     docker push ikedaharket/anami-appointments:latest
+
+    - name: Create Trigger File
+      run: echo "Some content" > trigger.txt
+
+    - name: List Files
+      run: ls -la
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
