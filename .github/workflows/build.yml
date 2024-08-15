@@ -38,15 +38,8 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker buildx build --platform linux/amd64,linux/arm64/v8 -t ikedaharket/anami-appointments:$NEW_VERSION .
-        docker buildx build --platform linux/amd64,linux/arm64/v8 -t ikedaharket/anami-appointments:latest .
-
-    - name: Push Docker Image
-      env:
-        NEW_VERSION: ${{ steps.version.outputs.version }}
-      run: |
-        docker push ikedaharket/anami-appointments:$NEW_VERSION
-        docker push ikedaharket/anami-appointments:latest
+        docker buildx build --platform linux/amd64,linux/arm64/v8 -t ikedaharket/anami-appointments:$NEW_VERSION --push .
+        docker buildx build --platform linux/amd64,linux/arm64/v8 -t ikedaharket/anami-appointments:latest --push .
     
   deploy:
     needs: build
