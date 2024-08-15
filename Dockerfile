@@ -14,7 +14,7 @@ FROM  node-version as builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN npm run build:prod
 
 FROM nginx:1.27-bookworm-perl as prod
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf

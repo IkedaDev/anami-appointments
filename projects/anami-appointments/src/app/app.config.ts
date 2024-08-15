@@ -8,7 +8,7 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter( routes ), 
-    { provide: APP_BASE_HREF, useValue:'/pi/anami/agenda-hotel-tds' },
+    // { provide: APP_BASE_HREF, useValue:'/pi/anami/agenda-hotel-tds' },
     provideServiceWorker('ngsw-worker.js', {
         enabled: !isDevMode(),
         registrationStrategy: 'registerWhenStable:30001'
