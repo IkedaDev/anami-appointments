@@ -22,4 +22,13 @@
     background: map-get($map: color.$success-color , $key: 'normal')
 }
 
+.ami-warning-normal-color{
+    color: map-get($map: color.$warning-color , $key: 'normal')
+}
+
+.ami-warning-normal-bg-color{
+    background: map-get($map: color.$warning-color , $key: 'normal')
+}
+
+
 

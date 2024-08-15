@@ -1,3 +1,5 @@
+@use '../../../../base';
+
 .ami-page-binnacle-history{
     display: flex;
     justify-content: center;
@@ -6,5 +8,14 @@
     gap: 4rem;
     app-date-card {
         width: 100%;
+    }
+    .ami-page-binnacle-history__total-day{
+        @extend .ami-card;
+        @extend .ami-warning-normal-bg-color;
+        p{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }

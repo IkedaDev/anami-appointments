@@ -3,10 +3,15 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
+import { APP_BASE_HREF } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideServiceWorker('ngsw-worker.js', {
+  providers: [
+    provideRouter( routes ), 
+    { provide: APP_BASE_HREF, useValue:'/pi/anami/agenda-hotel-tds' },
+    provideServiceWorker('ngsw-worker.js', {
         enabled: !isDevMode(),
-        registrationStrategy: 'registerWhenStable:30000'
-    })]
+        registrationStrategy: 'registerWhenStable:30001'
+    }),
+  ]
 };

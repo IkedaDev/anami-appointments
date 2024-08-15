@@ -1,14 +1,7 @@
-@use '../../../variables/colors' as color;
-@use '../../../variables/variables' as var;
+@use '../../../base';
 
 .ami-component-date-card{
-    background-color: map-get($map: color.$business-color, $key: "normal");
-    border-radius: map-get($map: var.$border-radius, $key: 'small');
-    height: 3.5rem;
-    display: flex;
+    @extend .ami-card;
+    @extend .ami-business-normal-bg-color;
     justify-content: center;
-    align-items: center;
-    padding: 0 2rem;
-    font-size: 1.6rem;
-    width: 100%;
 }

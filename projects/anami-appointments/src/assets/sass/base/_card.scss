@@ -1,0 +1,12 @@
+@use '../variables/colors' as color;
+@use '../variables/variables' as var;
+
+.ami-card{
+    border-radius: map-get($map: var.$border-radius, $key: 'small');
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    width: 100%;
+}

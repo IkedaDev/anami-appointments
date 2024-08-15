@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from '../../../components/title/title.component';
-import { DateCardComponent } from '../../../components/date-card/date-card.component';
+import * as Components from '../../../components/';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-history-patient',
   standalone: true,
-  imports: [ TitleComponent, DateCardComponent ],
+  imports: [ Components.TitleComponent, Components.DateCardComponent, CommonModule ],
   templateUrl: './history-patient.component.html',
-  styleUrl: './history-patient.component.scss'
 })
 export class HistoryPatientComponent {
 

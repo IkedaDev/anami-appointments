@@ -1,6 +1,6 @@
-import { Profit } from "./";
+import { Profit } from ".";
 
-export interface MassageDuration {
+export interface NailCut {
     id:string,
     name: string,
     price: number,

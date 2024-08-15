@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NailCuttingService } from './nail-cutting.service';
+import { NailCutsService } from './nail-cuts.service';
 
-describe('NailCuttingService', () => {
-  let service: NailCuttingService;
+describe('NailCutsService', () => {
+  let service: NailCutsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NailCuttingService);
+    service = TestBed.inject(NailCutsService);
   });
 
   it('should be created', () => {
