@@ -1,8 +1,10 @@
 name: Deploy to Server
 
 on:
-  repository_dispatch:
-    types: [deploy-trigger]
+  workflow_run:
+    workflows: ["Build and Push"]
+    types:
+      - completed
 
 jobs:
   deploy:
