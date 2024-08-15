@@ -59,14 +59,14 @@ jobs:
       - name: Deploy Application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'ENDSSH'
-          # Pull the latest image from Docker Hub
-          docker pull ikedaharket/anami-appointments:latest
 
           # Stop and remove any existing container
-          docker stop anami-appointments || true
-          docker rm anami-appointments || true
+          if [ $(docker ps -q -f name=anami-appointments) ]; then
+            docker stop anami-appointments || true
+            docker rm anami-appointments || true
+          fi
 
           # Run a new container with the latest image
-          docker run -d --name anami-appointments -p 30001:80 ikedaharket/anami-appointments:latest
+          docker run --platform linux/amd64 -d --name anami-appointments -p 30001:80 ikedaharket/anami-appointments:latest
           ENDSSH
 
