@@ -46,9 +46,6 @@ jobs:
 
     - name: Create Trigger File
       run: echo "Some content" > trigger.txt
-
-    - name: List Files
-      run: ls -la
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
