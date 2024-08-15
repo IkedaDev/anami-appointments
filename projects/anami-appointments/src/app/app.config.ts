@@ -1,9 +1,9 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { APP_BASE_HREF } from '@angular/common';
+
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
