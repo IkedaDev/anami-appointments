@@ -29,13 +29,17 @@ jobs:
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_TOKEN
-
+        
+    - name: Set up Docker Buildx
+      run: |
+        docker buildx create --use
+        
     - name: Build Docker Image
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build --platform linux/amd64 -t ikedaharket/anami-appointments:$NEW_VERSION .
-        docker build --platform linux/amd64 -t ikedaharket/anami-appointments:latest . 
+        docker buildx build --platform linux/amd64,linux/arm64/v8 -t ikedaharket/anami-appointments:$NEW_VERSION --push .
+        docker buildx build --platform linux/amd64,linux/arm64/v8 -t ikedaharket/anami-appointments:latest --push .
 
     - name: Push Docker Image
       env:
@@ -67,6 +71,6 @@ jobs:
           fi
 
           # Run a new container with the latest image
-          docker run --platform linux/amd64 -d --name anami-appointments -p 30001:80 ikedaharket/anami-appointments:latest
+          docker run -d --name anami-appointments -p 30001:80 ikedaharket/anami-appointments:latest
           ENDSSH
 
