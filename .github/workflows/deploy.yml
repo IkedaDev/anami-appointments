@@ -1,0 +1,32 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy Application
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'ENDSSH'
+          # Pull the latest image from Docker Hub
+          docker pull ${{ secrets.DOCKER_IMAGE }}:latest
+
+          # Stop and remove any existing container
+          docker stop anami-appointments || true
+          docker rm anami-appointments || true
+
+          # Run a new container with the latest image
+          docker run -d --name anami-appointments -p 30001:80 ${{ secrets.DOCKER_IMAGE }}:latest
+          ENDSSH
+          
