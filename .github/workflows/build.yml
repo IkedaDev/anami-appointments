@@ -64,6 +64,6 @@ jobs:
           fi
 
           # Run a new container with the latest image
-          docker run -d --name anami-appointments -p 30001:80 ikedaharket/anami-appointments:latest
+          docker run -d --restart=always --name anami-appointments -p 30001:80 ikedaharket/anami-appointments:latest
           ENDSSH
 
