@@ -4,5 +4,5 @@ export interface MassageDuration {
     id:string,
     name: string,
     price: number,
-    profit: Profit
+    profit: Profit,
 }

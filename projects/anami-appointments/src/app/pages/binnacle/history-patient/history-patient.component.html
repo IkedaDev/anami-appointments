@@ -5,15 +5,25 @@
 
     <app-date-card></app-date-card>
 
-    <div class="ami-page-binnacle-history__total-day">
+    <div class="ami-warning-normal-bg-color ami-page-binnacle-history__total-day">
         <p>
-            <span>Total del día: </span><span>{{ 426000 | currency: '':'symbol':'1.0-0' }}</span>
+            <span>Total del día: </span><span>{{ total().anami + total().hotel| currency: '':'symbol':'1.0-0' }}</span>
+        </p>
+    </div>
+    <div class="ami-business-bold-bg-color ami-page-binnacle-history__total-day">
+        <p>
+            <span>Total Anami: </span><span>{{ total().anami | currency: '':'symbol':'1.0-0' }}</span>
+        </p>
+    </div>
+    <div class="ami-text-color-white ami-hotel-normal-bg-color ami-page-binnacle-history__total-day">
+        <p>
+            <span>Total Hotel: </span><span>{{ total().hotel | currency: '':'symbol':'1.0-0' }}</span>
         </p>
     </div>
 
     <div class="ami-page-binnacle-history__list">
-        <app-appointment-card></app-appointment-card>
-        <app-appointment-card></app-appointment-card>
-        <app-appointment-card></app-appointment-card>
+        <pre>
+            {{appointments().item| json}}
+        </pre>
     </div>
 </div>

@@ -11,9 +11,7 @@
         width: 100%;
     }
     .ami-page-binnacle-history__total-day{
-        margin-top: 2rem;
         @extend .ami-card;
-        @extend .ami-warning-normal-bg-color;
         p{
             width: 100%;
             display: flex;

@@ -28,13 +28,17 @@ export class FacialCleansingService {
     return Rxjs.of<FacialCleansing[]>(fakeData)
   }
 
+  findById( idFacialCleansing :string): Signal<FacialCleansing | undefined>{
+    return computed<FacialCleansing | undefined>( () => this._facialCleansing().item?.find( ({id}) => id == idFacialCleansing ) )
+  }
+
   convertToBasicOption(name: string): Signal<BasicOption[]>{
     return computed<BasicOption[]>( () => this._facialCleansing().item?.map( opt => ({
       key: opt.id,
       label: opt.name,
       name: name,
       title: opt.name,
-      value: String(opt.price),
+      value: opt.id,
     } )  ) || [] ) 
   }
 

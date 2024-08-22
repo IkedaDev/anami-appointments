@@ -30,5 +30,20 @@
     background: map-get($map: color.$warning-color , $key: 'normal')
 }
 
+.ami-hotel-normal-color{
+    color: map-get($map: color.$hotel-color , $key: 'normal')
+}
+
+.ami-hotel-normal-bg-color{
+    background: map-get($map: color.$hotel-color , $key: 'normal')
+}
+
+.ami-text-color-black{
+    color: map-get($map: color.$text-color, $key: 'black');
+}
+
+.ami-text-color-white{
+    color: map-get($map: color.$text-color, $key: 'white');
+}
 
 

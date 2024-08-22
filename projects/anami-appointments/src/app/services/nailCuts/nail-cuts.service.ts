@@ -28,13 +28,17 @@ export class NailCutsService {
     return Rxjs.of<NailCut[]>(fakeData)
   }
 
+  findById( idNailCut :string): Signal<NailCut | undefined>{
+    return computed<NailCut | undefined>( () => this._nailCuts().item?.find( ({id}) => id == idNailCut ) )
+  }
+
   convertToBasicOption(name: string): Signal<BasicOption[]>{
     return computed<BasicOption[]>( () => this._nailCuts().item?.map( opt => ({
       key: opt.id,
       label: opt.name,
       name: name,
       title: opt.name,
-      value: String(opt.price),
+      value: opt.id,
     } )  ) || [] ) 
   }
 

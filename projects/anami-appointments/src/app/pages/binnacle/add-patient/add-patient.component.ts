@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { InputSelectOption } from '../../../models/components';
+import { Appointment, InputSelectOption } from '../../../models/components';
 import * as Services from '../../../services';
 import * as Components from '../../../components';
 
@@ -23,13 +23,14 @@ export class AddPatientComponent implements OnInit{
   private _nailCuts = inject(Services.NailCutsService)
   private _facialCleansing = inject(Services.FacialCleansingService)
   private _toastAlert = inject(Services.ToastService)
+  private _appointment = inject(Services.AppointmentsService)
 
   public form : FormGroup = this._fb.group({
     attentionDate: [],
     patient: [],
-    massageDuration: [],
-    nailCutting: [],
-    facialCleansing: []
+    massageDuration: [ , [ Validators.required ] ],
+    nailCutting: [ , [ Validators.required ] ],
+    facialCleansing: [ , [ Validators.required ] ]
   })
   
   durationOptions = new InputSelectOption(this._massageDuration.convertToBasicOption('duration')) 
@@ -56,6 +57,15 @@ export class AddPatientComponent implements OnInit{
     .addTitle('Masaje creado')  
     .addIcon('success')
     .build()
+
+    this._appointment.save({
+      patient: this.form.get('patient')?.value || '',
+      details:{
+        massageDuration: this._massageDuration.findById(this.form.get('massageDuration')!.value)()!,
+        nailCuts: this._nailCuts.findById(this.form.get('nailCutting')!.value)()!,
+        facialCleansing: this._facialCleansing.findById(this.form.get('facialCleansing')!.value)()!,
+      },
+    })
 
   }
 

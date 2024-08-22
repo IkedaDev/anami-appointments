@@ -6,8 +6,8 @@ export const fakeData: NailCut[] = [
     name: 'Si',
     price: 5_000,
     profit:{
-      hotel: 40,
-      anami: 60,
+      hotel: 0,
+      anami: 100,
     },
    },
    {
@@ -15,8 +15,8 @@ export const fakeData: NailCut[] = [
     name: 'No',
     price: 0,
     profit:{
-      hotel: 40,
-      anami: 60,
+      hotel: 0,
+      anami: 100,
     },
    }
 ]

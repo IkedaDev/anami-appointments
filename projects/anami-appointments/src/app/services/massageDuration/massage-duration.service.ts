@@ -28,13 +28,17 @@ export class MassageDurationService {
     return Rxjs.of<MassageDuration[]>(fakeData)
   }
 
+  findById( idMassageDuration :string): Signal<MassageDuration | undefined>{
+    return computed<MassageDuration | undefined>( () => this._massageDurations().item?.find( ({id}) => id == idMassageDuration ) )
+  }
+
   convertToBasicOption(name: string): Signal<BasicOption[]>{
     return computed<BasicOption[]>( () => this._massageDurations().item?.map( opt => ({
       key: opt.id,
       label: opt.name,
       name: name,
       title: opt.name,
-      value: String(opt.price),
+      value: opt.id,
     } )  ) || [] ) 
   }
 
