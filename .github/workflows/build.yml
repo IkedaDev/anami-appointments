@@ -57,13 +57,15 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'ENDSSH'
 
-          # Stop and remove any existing container
           if [ $(docker ps -q -f name=anami-appointments) ]; then
             docker stop anami-appointments || true
             docker rm anami-appointments || true
           fi
-
-          # Run a new container with the latest image
+          
+          if [ $(docker images -q ikedaharket/anami-appointments:latest) ]; then
+            docker rmi ikedaharket/anami-appointments:latest || true
+          fi
+          
           docker run -d --restart=always --name anami-appointments -p 30001:80 ikedaharket/anami-appointments:latest
           ENDSSH
 
