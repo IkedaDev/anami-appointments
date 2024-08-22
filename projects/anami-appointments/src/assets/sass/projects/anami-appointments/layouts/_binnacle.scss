@@ -6,17 +6,8 @@
         min-width: 20rem;
         max-width: 60rem;
         min-height: 100vh;
-        .ami-layout-binnacle-wrapper__logo{
-            height: 30vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img{
-                width: 200px;
-            }
-        }
         main{
-            height: calc(70vh - 6rem);
+            height: calc(100vh - 6rem);
             padding: 0 3rem;
         }
         nav{

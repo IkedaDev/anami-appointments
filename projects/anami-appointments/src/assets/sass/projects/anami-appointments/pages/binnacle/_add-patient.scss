@@ -4,6 +4,15 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    .ami-layout-binnacle-add-wrapper__logo{
+        height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 200px;
+            }
+    }
     app-date-card {
         margin-top: 2rem;
         width: 100%;

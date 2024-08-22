@@ -28,9 +28,9 @@ export class AddPatientComponent implements OnInit{
   public form : FormGroup = this._fb.group({
     attentionDate: [],
     patient: [],
-    massageDuration: [ , [ Validators.required ] ],
-    nailCutting: [ , [ Validators.required ] ],
-    facialCleansing: [ , [ Validators.required ] ]
+    massageDuration: [ ],
+    nailCutting: [ ],
+    facialCleansing: [ ]
   })
   
   durationOptions = new InputSelectOption(this._massageDuration.convertToBasicOption('duration')) 
@@ -51,8 +51,9 @@ export class AddPatientComponent implements OnInit{
   }
 
   save(){
-    if(this.form.invalid) return 
-    
+    if( this.form.invalid ) return 
+    if( this.isFormEmpty() ) return
+
     this._toastAlert.createBuilder()
     .addTitle('Masaje creado')  
     .addIcon('success')
@@ -67,9 +68,12 @@ export class AddPatientComponent implements OnInit{
       },
     })
 
+    this.form.reset()
   }
 
-
+  private isFormEmpty(): boolean {
+    return this.form.pristine && this.form.untouched;
+  }
 
 
 }
