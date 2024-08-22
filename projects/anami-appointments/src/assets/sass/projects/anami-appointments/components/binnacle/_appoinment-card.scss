@@ -1,0 +1,27 @@
+@use '../../../../variables/colors' as color;
+@use '../../../../variables/variables' as var;
+
+
+.ami-component-binnacle-appointment-card{
+    background-color: map-get($map: color.$business-color, $key: 'normal');
+    padding: 2rem;
+    flex-direction: column;
+    height: auto;
+    align-items: start;
+    gap: 2rem;
+    .ami-component-binnacle-appointment-card__details,
+    .ami-component-binnacle-appointment-card__amounts
+    {   
+        border-radius: map-get($map: var.$border-radius, $key: 'small');
+        font-size: 1.4rem;
+        background-color: map-get($map: color.$business-color, $key: 'bold');
+        display: flex;
+        padding: 1rem;
+        gap: 2rem;
+    }
+    .ami-component-binnacle-appointment-footer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}

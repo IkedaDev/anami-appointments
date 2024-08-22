@@ -3,6 +3,8 @@
 .ami-component-binnacle-navbar{
     @extend .ami-business-normal-bg-color;
     display: flex;
+    position: relative;
+    z-index: 100;
     span{
         &.active{
             @extend .ami-business-bold-bg-color;

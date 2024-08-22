@@ -5,11 +5,13 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
     app-date-card {
+        margin-top: 2rem;
         width: 100%;
     }
     .ami-page-binnacle-history__total-day{
+        margin-top: 2rem;
         @extend .ami-card;
         @extend .ami-warning-normal-bg-color;
         p{
@@ -17,5 +19,14 @@
             display: flex;
             justify-content: space-between;
         }
+    }
+    .ami-page-binnacle-history__list{
+        width: 100%;
+        height: calc( 70vh - 27rem ) ;
+        flex-grow: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 }
