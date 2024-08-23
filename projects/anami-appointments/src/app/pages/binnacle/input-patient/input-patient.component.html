@@ -3,7 +3,11 @@
     <div class="ami-page-binnacle-input-wrapper__logo">
         <img src="../../../assets/imgs/anami-logo.png" alt="Logo Anami">
     </div>
-    <app-title title="Agregar Masaje" ></app-title>
+    @if (haveAppointmentSelected()) {
+        <app-title title="Actualizar Masaje" ></app-title>
+    }@else {
+        <app-title title="Agregar Masaje" ></app-title>
+    }
 
     <app-date-card></app-date-card>
 
@@ -47,7 +51,26 @@
             </app-input-select>
         </div>
         <!-- <pre>{{form.value | json}}</pre> -->
-        <app-button [props]="{ type:'submit', value: 'Guardar', color:'success' }" class="ami-my-10 ami-text-color-black"></app-button>
+        <div class="ami-page-binnacle-input__form-buttons">
+            @if (haveAppointmentSelected()?.id) {
+                <app-button
+                    [props]="{ type:'submit', value: 'Editar', color:'warning' }" 
+                    class="ami-my-10 ami-text-color-black"
+                ></app-button>
+                <app-button
+                    [props]="{ type:'button', value: 'Eliminar', color:'danger' }" 
+                    class="ami-text-color-white"
+                    (click)="deleteAppointment(haveAppointmentSelected()!.id)"
+                ></app-button>
+                <app-button
+                    [props]="{ type:'button', value: 'Cancelar', color:'danger' }" 
+                    class="ami-text-color-black"
+                    (click)="abortSelectedOption()"
+                ></app-button>
+            }@else{
+                <app-button [props]="{ type:'submit', value: 'Guardar', color:'success' }" class="ami-my-10 ami-text-color-black"></app-button>
+            }
+        </div>
    </form>
 </div>
 

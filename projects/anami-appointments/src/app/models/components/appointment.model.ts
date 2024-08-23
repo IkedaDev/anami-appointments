@@ -1,7 +1,9 @@
 import moment from "moment";
 import { FacialCleansing, MassageDuration, NailCut } from "../../interfaces"
 import 'moment-timezone';
+import { UUID } from "../../adapters/uuid";
 interface Props{
+    id?: string
     status?: 'OK'
     execDate?: Date
     patient?: string
@@ -11,6 +13,7 @@ interface Props{
 
 
 export class Appointment {
+    id: string;
     status: 'OK';
     execDate: Date;
     patient: string;
@@ -18,6 +21,7 @@ export class Appointment {
     amounts: AppointmentAmounts = { hotel: 0, anami: 0 };
 
     constructor( props : Props) {
+        this.id = props.id || UUID.generate()
         this.status = props.status || 'OK';
         this.execDate = props.execDate || moment.tz('America/Santiago').toDate();
         this.patient = props.patient || '';

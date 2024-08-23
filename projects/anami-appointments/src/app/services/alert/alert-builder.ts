@@ -11,7 +11,17 @@ export class AlertBuilder {
       this._alertArguments.title = title
       return this
     }
-    
+
+    html(html: string){
+     this._alertArguments.html = html;
+     return this 
+    }
+
+    preConfirm( fn: (inputValue: any) => any) {
+      this._alertArguments.preConfirm = fn
+      return this
+    }
+
     showCancelButton(showCancelButton: boolean){
       this._alertArguments.showCancelButton = showCancelButton
       return this

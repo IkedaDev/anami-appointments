@@ -6,6 +6,7 @@ import moment from 'moment';
 import 'moment-timezone';
 
 interface SaveAppointment{
+  id?: string
   patient: string
   details: {
       massageDuration: MassageDuration,
@@ -22,8 +23,10 @@ export class AppointmentsService {
   private _appointments = signal<DataWithStatus<Appointment[]>>({
     hasError: false, isLoad: false, isLoading: true
   });
+  private _appointmentSelected = signal<Appointment | null>(null)
 
   public appointments = this._appointments.asReadonly();
+  public appointmentSelected = this._appointmentSelected.asReadonly()
 
   public total = computed<AppointmentAmounts>( () => this._appointments()?.item?.reduce((totals, appointment) => ({
     hotel: totals.hotel + (appointment.amounts.hotel || 0),
@@ -34,21 +37,35 @@ export class AppointmentsService {
     this._initializeAppointments()
   }
 
-  save(appointment: SaveAppointment ): void {
-    this._appointments.update((data) => ({
-      ...data,
-      item: [new Appointment({
+  save(appointment: SaveAppointment): void {
+    const newAppointment = new Appointment({
+        id: appointment.id,
         patient: appointment.patient,
-        details:{
-          facialCleansing: appointment.details.facialCleansing,
-          massageDuration: appointment.details.massageDuration,
-          nailCuts: appointment.details.nailCuts,
+        details: {
+            facialCleansing: appointment.details.facialCleansing,
+            massageDuration: appointment.details.massageDuration,
+            nailCuts: appointment.details.nailCuts,
         }
-      }), ...data.item || []] 
-    }))
-    this.updateAppointmentInLocalStorage(this._appointments().item || [])
+    });
+
+    this._appointments.update((data) => ({
+        ...data,
+        item: appointment.id
+            ? data.item?.map(a => a.id === appointment.id ? newAppointment : a) || []
+            : [newAppointment, ...data.item || []]
+    }));
+
+    this.updateAppointmentInLocalStorage(this._appointments().item || []);
   }
-  
+
+  delete(appointmentId: string){
+      this._appointments.update( (data) => ({
+        ...data,
+        item: data.item?.filter( ({id}) => appointmentId !== id )
+      }))
+      this.updateAppointmentInLocalStorage(this._appointments().item || [])
+  }
+
   updateAppointmentInLocalStorage(appointments: Appointment[]){
     localStorage.setItem(LOCAL_STORAGE_KEY.APPOINTMENTS, JSON.stringify(appointments))
   }
@@ -60,6 +77,14 @@ export class AppointmentsService {
     })
   }
   
+  setAppointmentSelected( appointment: Appointment ): void{
+    this._appointmentSelected.set(appointment)
+  }
+
+  clearAppointmentSelected(){
+    this._appointmentSelected.set(null)
+  }
+
   private _initializeAppointments(){
       this._verifyDateLocalStorage()
       this._appointments.update((data) => ({

@@ -30,5 +30,10 @@
                 width: 50%;
             }
         }
+        .ami-page-binnacle-input__form-buttons{
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
     }
 }

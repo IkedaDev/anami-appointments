@@ -5,7 +5,7 @@ interface Props{
   type: 'submit' | 'button' | 'reset',
   value: string,
   // click?(): void,
-  color: 'success' | 'danger'
+  color: 'success' | 'danger' | 'warning'
 }
 
 @Component({
