@@ -17,7 +17,7 @@
         ></app-input>
 
         <app-input-select [props]="{
-            label: durationOptions.setLabel(form.get('massageDuration')?.value, 'Duracion')(), 
+            label: durationOptions.setLabel(form.get('massageDuration')?.value, 'Masaje')(), 
         }" >
             <ng-container #option>
                 @for (option of durationOptions.options(); track $index) {
