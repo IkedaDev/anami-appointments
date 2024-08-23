@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import * as Components from '../../../components/';
 import { CommonModule } from '@angular/common';
-import { AppointmentsService } from '../../../services';
+import { AlertService, AppointmentsService } from '../../../services';
 import { ButtonComponent } from "../../../components/button/button.component";
 import Swal from 'sweetalert2';
 
@@ -14,21 +14,23 @@ import Swal from 'sweetalert2';
 export class HistoryPatientComponent {
 
   private _appointmentsService = inject(AppointmentsService)
+  private _alertService = inject(AlertService)
 
   public total = this._appointmentsService.total
   public appointments = this._appointmentsService.appointments
   
 
   async clearDay(){
-    const result = await Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'Esta acción no se puede deshacer.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, continuar',
-      cancelButtonText: 'Cancelar',
-      reverseButtons: true
-    });
+    const result = await this._alertService.createBuilder()
+      .icon('warning')
+      .title('¿Estás segura?')
+      .text('Esta acción no se puede deshacer.')
+      .showCancelButton(true)
+      .confirmButtonText('Sí, continuar')
+      .cancelButtonText('Cancelar')
+      .reverseButtons(true)
+      .build()
+
     if (result.isConfirmed) {
       this._appointmentsService.clearAppointments()
     }

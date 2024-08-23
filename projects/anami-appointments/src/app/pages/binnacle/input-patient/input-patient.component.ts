@@ -6,16 +6,16 @@ import * as Services from '../../../services';
 import * as Components from '../../../components';
 
 @Component({
-  selector: 'app-add-patient',
+  selector: 'input-input-patient',
   standalone: true,
   imports: [ 
     Components.InputComponent, Components.DateCardComponent, ReactiveFormsModule, CommonModule, 
     Components.InputSelectComponent, Components.BasicOptionComponent, Components.TitleComponent, 
     Components.ButtonComponent
   ],
-  templateUrl: './add-patient.component.html',
+  templateUrl: './input-patient.component.html',
 })
-export class AddPatientComponent implements OnInit{
+export class InputPatientComponent implements OnInit{
 
 
   private _fb : FormBuilder = inject(FormBuilder)

@@ -25,7 +25,7 @@
         @for (appointment of appointments().item; track $index) {
             <app-appointment-card [appointment]="appointment" ></app-appointment-card>
         }@empty {
-            <p>
+            <p class="ami-page-binnacle-history__list-no-records">
                 <span>No hay masajes aun :c</span>
             </p>
         }

@@ -1,10 +1,10 @@
-.ami-page-binnacle-add{
+.ami-page-binnacle-input{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    .ami-layout-binnacle-add-wrapper__logo{
+    .ami-page-binnacle-input-wrapper__logo{
         height: 30vh;
             display: flex;
             justify-content: center;
@@ -22,7 +22,7 @@
         flex-direction: column;
         gap: 1rem;
         width: 100%;
-        .ami-page-binnacle-add__combine-select {
+        .ami-page-binnacle-input__combine-select {
             display: flex;
             gap: 1rem;
             app-input-select {

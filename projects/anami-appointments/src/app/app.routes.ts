@@ -7,7 +7,7 @@ export const routes: Routes = [
         children: [
             {
                 path: 'add',
-                loadComponent: () => import('./pages/binnacle/add-patient/add-patient.component').then( c => c.AddPatientComponent )
+                loadComponent: () => import('./pages/binnacle/input-patient/input-patient.component').then( c => c.InputPatientComponent )
             },{
                 path:'history',
                 loadComponent: () => import('./pages/binnacle/history-patient/history-patient.component').then( c => c.HistoryPatientComponent )

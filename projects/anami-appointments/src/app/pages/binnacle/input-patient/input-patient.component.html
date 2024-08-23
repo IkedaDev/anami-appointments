@@ -1,6 +1,6 @@
 
-<div class="ami-page-binnacle-add">
-    <div class="ami-layout-binnacle-add-wrapper__logo">
+<div class="ami-page-binnacle-input">
+    <div class="ami-page-binnacle-input-wrapper__logo">
         <img src="../../../assets/imgs/anami-logo.png" alt="Logo Anami">
     </div>
     <app-title title="Agregar Masaje" ></app-title>
@@ -26,7 +26,7 @@
             </ng-container>
         </app-input-select>
 
-        <div class="ami-page-binnacle-add__combine-select">
+        <div class="ami-page-binnacle-input__combine-select">
             <app-input-select [props]="{
                 label: nailOptions.setLabel(form.get('nailCutting')?.value, 'Corte de uñas')(), 
             }" >
@@ -47,7 +47,7 @@
             </app-input-select>
         </div>
         <!-- <pre>{{form.value | json}}</pre> -->
-        <app-button [props]="{ type:'submit', value: 'Guardar', color:'success' }" class="ami-my-10"></app-button>
+        <app-button [props]="{ type:'submit', value: 'Guardar', color:'success' }" class="ami-my-10 ami-text-color-black"></app-button>
    </form>
 </div>
 
