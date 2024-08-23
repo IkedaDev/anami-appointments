@@ -22,8 +22,20 @@
     </div>
 
     <div class="ami-page-binnacle-history__list">
-        <pre>
-            {{appointments().item| json}}
-        </pre>
+        @for (appointment of appointments().item; track $index) {
+            <app-appointment-card [appointment]="appointment" ></app-appointment-card>
+        }@empty {
+            <p>
+                <span>No hay masajes aun :c</span>
+            </p>
+        }
+        <div class="ami-page-binnacle-history__footer">
+            <app-button [props]="{
+                type: 'button',
+                value:'Limpiar día',
+                color:'danger',
+            }" (click)="clearDay()"></app-button>
+        </div>
     </div>
+    
 </div>

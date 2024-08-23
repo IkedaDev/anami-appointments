@@ -30,6 +30,13 @@
     background: map-get($map: color.$warning-color , $key: 'normal')
 }
 
+.ami-danger-normal-color{
+    color: map-get($map: color.$danger-color , $key: 'normal')
+}
+.ami-danger-normal-bg-color{
+    background: map-get($map: color.$danger-color , $key: 'normal')
+}
+
 .ami-hotel-normal-color{
     color: map-get($map: color.$hotel-color , $key: 'normal')
 }

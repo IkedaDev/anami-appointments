@@ -17,7 +17,8 @@
         background-color: map-get($map: color.$business-color, $key: 'bold');
         display: flex;
         padding: 1rem;
-        gap: 2rem;
+        gap: 3rem;
+        flex-wrap: wrap;
     }
     .ami-component-binnacle-appointment-footer{
         width: 100%;

@@ -4,8 +4,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 interface Props{
   type: 'submit' | 'button' | 'reset',
   value: string,
-  click?(): void,
-  color: 'success'
+  // click?(): void,
+  color: 'success' | 'danger'
 }
 
 @Component({
@@ -19,7 +19,7 @@ export class ButtonComponent {
   @Output() onClick = new EventEmitter()
 
   handlerClick(){
-    if(this.props.click ) this.props.click()
+    // if(this.props.click ) this.props.click()
       this.onClick.emit()
   }
 

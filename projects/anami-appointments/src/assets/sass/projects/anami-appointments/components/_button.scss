@@ -7,5 +7,4 @@ button.ami-component-button{
     border: none;
     height: 3.5rem;
     border-radius: map-get($map: var.$border-radius, $key: 'small');
-    color: map-get($map: color.$text-color, $key: "black")
 }

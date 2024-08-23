@@ -20,11 +20,19 @@
     }
     .ami-page-binnacle-history__list{
         width: 100%;
-        height: calc( 70vh - 27rem ) ;
+        height: calc( 70vh - 20.5rem ) ;
         flex-grow: 1;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         gap: 2rem;
+    }
+    .ami-page-binnacle-history__footer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        app-button{
+            width: 100%; 
+        }
     }
 }

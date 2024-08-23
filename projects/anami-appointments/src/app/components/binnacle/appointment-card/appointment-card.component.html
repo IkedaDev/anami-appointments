@@ -1,27 +1,40 @@
 <div class="ami-component-binnacle-appointment-card ami-card">
-    <p><span class="ami-font-bold">Paciente:</span></p>
+    <p>
+        @if (appointment.patient) {
+            <span class="ami-font-bold ami-mx-e-10">Paciente:</span> 
+            <span>{{appointment.patient | titlecase}}</span>
+        }@else {
+            <span>{{appointment.execDate | date: 'dd / MM / Y'}}</span>
+        }
+    </p>
     <div class="ami-component-binnacle-appointment-card__details">
-        <div>
-            <p><span>Duracion</span><span></span></p>
-        </div>
-        <div>
-            <p><span>Limpieza</span><span></span></p>
-        </div>
-        <div>
-            <p><span>Uñas</span><span></span></p>
-        </div>
+        @if (appointment.details.massageDuration){
+            <div>
+                <p><span class="ami-mx-e-10">Duracion</span><span>{{appointment.details.massageDuration.name}}</span></p>
+            </div>
+        }
+        @if (appointment.details.facialCleansing) {
+            <div>
+                <p><span class="ami-mx-e-10">Limpieza</span><span>{{appointment.details.facialCleansing.name}}</span></p>
+            </div>
+        }
+        @if (appointment.details.nailCuts) {
+            <div>
+                <p><span class="ami-mx-e-10">Uñas</span><span>{{appointment.details.nailCuts.name}}</span></p>
+            </div>
+        }        
     </div>
     <div class="ami-component-binnacle-appointment-card__amounts">
         <div>
-            <p><span>Hotel</span><span></span></p>
+            <p><span class="ami-mx-e-10">Hotel</span><span>{{appointment.amounts.hotel}}</span></p>
         </div>
         <div>
-            <p><span>Anami</span><span></span></p>
+            <p><span class="ami-mx-e-10">Anami</span><span>{{appointment.amounts.anami}}</span></p>
         </div>
     </div>
     <div class="ami-component-binnacle-appointment-footer">
         <div class="ami-component-binnacle-appointment-card__total">
-            <p><span class="ami-font-bold">Total: </span></p>
+            <p><span class="ami-font-bold ami-mx-e-10">Total:</span> <span>{{appointment.total()}}</span></p>
         </div>
         <div class="ami-component-binnacle-appointment-card__actions">
             <div>

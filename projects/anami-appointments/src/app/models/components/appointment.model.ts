@@ -1,4 +1,13 @@
+import moment from "moment";
 import { FacialCleansing, MassageDuration, NailCut } from "../../interfaces"
+import 'moment-timezone';
+interface Props{
+    status?: 'OK'
+    execDate?: Date
+    patient?: string
+    details: Details
+    amounts?: AppointmentAmounts
+}
 
 
 export class Appointment {
@@ -8,14 +17,11 @@ export class Appointment {
     details: Details;
     amounts: AppointmentAmounts = { hotel: 0, anami: 0 };
 
-    constructor(
-        patient: string,
-        details: Details,
-    ) {
-        this.status = 'OK';
-        this.execDate = new Date();
-        this.patient = patient;
-        this.details = details;
+    constructor( props : Props) {
+        this.status = props.status || 'OK';
+        this.execDate = props.execDate || moment.tz('America/Santiago').toDate();
+        this.patient = props.patient || '';
+        this.details = props.details;
         this.calcAmounts()
     }
 
