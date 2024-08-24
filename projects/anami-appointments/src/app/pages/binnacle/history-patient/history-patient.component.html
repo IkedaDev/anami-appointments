@@ -29,6 +29,7 @@
                 <span>No hay masajes aun :c</span>
             </p>
         }
+       @if(appointments().item && appointments().item!.length > 0){
         <div class="ami-page-binnacle-history__footer">
             <app-button [props]="{
                 type: 'button',
@@ -36,6 +37,7 @@
                 color:'danger',
             }" (click)="clearDay()"></app-button>
         </div>
+       }
     </div>
     
 </div>

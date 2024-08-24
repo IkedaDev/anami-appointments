@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Appointment, InputSelectOption } from '../../../models/components';
 import * as Services from '../../../services';
@@ -30,12 +30,12 @@ export class InputPatientComponent implements OnInit, OnDestroy{
   public haveAppointmentSelected = this._appointment.appointmentSelected
 
   public form : FormGroup = this._fb.group({
-    id: [this.haveAppointmentSelected()?.id],
-    attentionDate: [this.haveAppointmentSelected()?.execDate],
-    patient: [this.haveAppointmentSelected()?.patient],
-    massageDuration: [ this.haveAppointmentSelected()?.details.massageDuration.id ],
-    nailCutting: [ this.haveAppointmentSelected()?.details.nailCuts.id ],
-    facialCleansing: [ this.haveAppointmentSelected()?.details.facialCleansing.id ]
+    id: [],
+    attentionDate: [],
+    patient: [],
+    massageDuration: [],
+    nailCutting: [],
+    facialCleansing: []
   })
   
   durationOptions = new InputSelectOption(this._massageDuration.convertToBasicOption('duration')) 
@@ -43,6 +43,7 @@ export class InputPatientComponent implements OnInit, OnDestroy{
   facialOptions = new InputSelectOption((this._facialCleansing.convertToBasicOption('facials')))
 
   ngOnInit(): void {
+    this._initializeForm()
     this._massageDuration.getMassageDurations().subscribe((massageDurations)=>{
       this._massageDuration.setMassageDuration( massageDurations )
     })
@@ -107,6 +108,18 @@ export class InputPatientComponent implements OnInit, OnDestroy{
 
   private isFormEmpty(): boolean {
     return this.form.pristine && this.form.untouched;
+  }
+
+  private _initializeForm(){
+    if( !this.haveAppointmentSelected()?.id ) return 
+    console.log(this.haveAppointmentSelected())
+    this.form.get('id')?.setValue(this.haveAppointmentSelected()?.id)
+    this.form.get('attentionDate')?.setValue(this.haveAppointmentSelected()?.execDate)
+    this.form.get('patient')?.setValue(this.haveAppointmentSelected()?.patient)
+    this.form.get('massageDuration')?.setValue(this.haveAppointmentSelected()?.details?.massageDuration?.id || null)
+    this.form.get('nailCutting')?.setValue(this.haveAppointmentSelected()?.details?.nailCuts?.id || null)
+    this.form.get('facialCleansing')?.setValue(this.haveAppointmentSelected()?.details?.facialCleansing?.id || null)
+    
   }
 
   ngOnDestroy(): void {
