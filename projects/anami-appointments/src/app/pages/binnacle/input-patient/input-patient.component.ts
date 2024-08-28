@@ -61,7 +61,7 @@ export class InputPatientComponent implements OnInit, OnDestroy{
     if( this.isFormEmpty() ) return
 
     this._toastAlert.createBuilder()
-    .addTitle( !!this.haveAppointmentSelected ? 'Masaje actualizado' : 'Masaje creado')  
+    .addTitle( !!this.haveAppointmentSelected() ? 'Masaje actualizado' : 'Masaje creado')  
     .addIcon('success')
     .build()
 
@@ -76,7 +76,7 @@ export class InputPatientComponent implements OnInit, OnDestroy{
     })
 
     this.form.reset()
-    if( !!this.haveAppointmentSelected ){
+    if( !!this.haveAppointmentSelected() ){
       this._router.navigateByUrl('history')
     }
   }
