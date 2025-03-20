@@ -15,6 +15,9 @@ export const routes: Routes = [
                 path:'history',
                 loadComponent: () => import('./pages/binnacle/history-patient/history-patient.component').then( c => c.HistoryPatientComponent )
             },{
+                path:'yellow-flowers',
+                loadComponent: () => import('./pages/binnacle/yellow-flowers/yellow-flowers.component').then( c => c.YellowFlowersComponent )
+            },{
                 path:'**',
                 redirectTo:'add'
             }

@@ -5,4 +5,9 @@
     <span routerLink="/history" routerLinkActive="active">
         <img src="../../../../assets/icons/list.svg" alt="Historial">
     </span>
+    @if(isYellowFloresDay()){
+        <span routerLink="/yellow-flowers" routerLinkActive="active">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/267/428/non_2x/element-flower-icon-free-png.png" alt="Flores Amarillas" width="30">
+        </span>
+    }
 </nav>

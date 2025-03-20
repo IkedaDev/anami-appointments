@@ -1,4 +1,5 @@
 @forward '../../../../base/';
+@use '../../../../variables/colors' as color;
 
 .ami-component-binnacle-navbar{
     @extend .ami-business-normal-bg-color;
@@ -6,6 +7,9 @@
     position: relative;
     z-index: 100;
     span{
+        &:not(:first-child){
+            border-left: 2px solid map-get($map: color.$business-color , $key: 'bold');
+        }
         &.active{
             @extend .ami-business-bold-bg-color;
         }
