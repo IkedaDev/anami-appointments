@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { yellowFlowersGuard } from './guards/yellow-flowers.guard';
 
 export const routes: Routes = [
     {
@@ -16,7 +17,8 @@ export const routes: Routes = [
                 loadComponent: () => import('./pages/binnacle/history-patient/history-patient.component').then( c => c.HistoryPatientComponent )
             },{
                 path:'yellow-flowers',
-                loadComponent: () => import('./pages/binnacle/yellow-flowers/yellow-flowers.component').then( c => c.YellowFlowersComponent )
+                loadComponent: () => import('./pages/binnacle/yellow-flowers/yellow-flowers.component').then( c => c.YellowFlowersComponent ),
+                canActivate: [ yellowFlowersGuard ]
             },{
                 path:'**',
                 redirectTo:'add'
