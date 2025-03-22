@@ -9,6 +9,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
 
-  public isYellowFloresDay = signal<boolean>(new Date().getDate() === 21 && new Date().getMonth() === 2)
+  // public isYellowFloresDay = signal<boolean>(new Date().getDate() === 21 && new Date().getMonth() === 2)
+  public isYellowFloresDay = signal<boolean>(true)
 
 }

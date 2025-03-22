@@ -18,7 +18,7 @@ export const routes: Routes = [
             },{
                 path:'yellow-flowers',
                 loadComponent: () => import('./pages/binnacle/yellow-flowers/yellow-flowers.component').then( c => c.YellowFlowersComponent ),
-                canActivate: [ yellowFlowersGuard ]
+                // canActivate: [ yellowFlowersGuard ]
             },{
                 path:'**',
                 redirectTo:'add'
